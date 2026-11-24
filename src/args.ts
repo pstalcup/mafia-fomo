@@ -16,6 +16,10 @@ export const args = Args.create(
       help: "Buy Mr. Accessories from the mall with spare meat.",
       default: true,
     }),
+    ntfy: Args.string({
+      help: "ntfy.sh topic (or full ntfy server URL) to notify about purchases and failures.",
+      default: "",
+    }),
     dryrun: Args.flag({
       help: "Print what would happen without buying anything or writing the data file.",
       default: false,

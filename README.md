@@ -29,11 +29,12 @@ Options can be given on the command line (`fomo reserve=50000000 dryrun`) or sav
 | `reserve`  | `20000000` | Meat to keep. Mr. Accessories are only bought with meat above this. |
 | `maxprice` | `80000000` | Most meat to pay for one Mr. Accessory.                             |
 | `buymra`   | `true`     | Set to `false` to skip buying Mr. Accessories with meat.            |
+| `ntfy`     | (none)     | ntfy topic or server URL for purchase and failure notifications.    |
 | `dryrun`   | off        | Print what would happen without buying anything or saving the file. |
 
 ## Notifications
 
-If the `halfloop_ntfy` preference is set (the same one halfloop uses), fomo sends an [ntfy](https://ntfy.sh) notification for each purchase and for any failure. It can be a bare topic name or a full ntfy server URL.
+If the `ntfy` option is set (for example `set fomo_ntfy=mytopic`), fomo sends an [ntfy](https://ntfy.sh) notification for each purchase and for any failure. It can be a bare topic name or a full ntfy server URL.
 
 ## The data file
 
