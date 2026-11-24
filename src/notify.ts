@@ -1,7 +1,6 @@
-import { getProperty, print, visitUrl } from "kolmafia";
+import { print, visitUrl } from "kolmafia";
 
-// Shares halfloop's ntfy setting so both scripts notify the same place.
-const NTFY_PROPERTY = "halfloop_ntfy";
+import { args } from "./args";
 
 function ntfyUrl(topic: string): string {
   // Accept either a bare topic (published to ntfy.sh) or a full URL for a self-hosted server
@@ -10,13 +9,13 @@ function ntfyUrl(topic: string): string {
 }
 
 /**
- * Send a push notification through ntfy if halfloop_ntfy is set.
+ * Send a push notification through ntfy if the ntfy arg (or fomo_ntfy pref) is set.
  * Uses ntfy's GET publish endpoint, as halfloop does, since KoLmafia form-encodes POST bodies.
  * Never throws: a failed notification should not stop the run.
  */
 export function notify(message: string, failure = false): void {
   print(message, failure ? "red" : "blue");
-  const topic = getProperty(NTFY_PROPERTY);
+  const topic = args.ntfy;
   if (!topic) return;
 
   const params: [string, string][] = [
